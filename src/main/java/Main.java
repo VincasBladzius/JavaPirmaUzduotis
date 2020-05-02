@@ -9,11 +9,11 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            connect = DriverManager.getConnection(url, user, pass);
-//            statement = connect.createStatement();
-//            String query = "SELECT * FROM test";
-//            resultSet = statement.executeQuery(query);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connect = DriverManager.getConnection(url, user, pass);
+            statement = connect.createStatement();
+            String query = "SELECT * FROM test";
+            resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
