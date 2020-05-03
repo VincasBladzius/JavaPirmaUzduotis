@@ -22,6 +22,9 @@ public class Main {
             Subsidize subsidize = new Subsidize(statement);
             subsidize.performAction();
             printOut.performAction();
+            ShowProblematic showProblematic = new ShowProblematic(statement);
+            showProblematic.performAction();
+            printOut.performAction();
 
             statement.close();
             connect.close();
