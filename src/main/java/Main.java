@@ -19,6 +19,9 @@ public class Main {
             createDatabase.performAction();
             PrintOut printOut = new PrintOut(statement);
             printOut.performAction();
+            Subsidize subsidize = new Subsidize(statement);
+            subsidize.performAction();
+            printOut.performAction();
 
             statement.close();
             connect.close();

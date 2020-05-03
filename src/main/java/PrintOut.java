@@ -12,10 +12,11 @@ public class PrintOut extends QueriesClass{
         ResultSet resultSet = FetchDatabase();
         int rowNumber = 1;
         while (resultSet.next()) {
-            String name = resultSet.getString("first_name");
-            String lastName = resultSet.getString("last_name");
-            int income = resultSet.getInt("income");
-            System.out.println(rowNumber + " " + name + " " + lastName + " " + income);
+            String name = resultSet.getString(FIRST_NAME);
+            String lastName = resultSet.getString(LAST_NAME);
+        int income = resultSet.getInt(INCOME);
+            String subs = resultSet.getString(SUBSIDIZED);
+            System.out.println(rowNumber + " " + name + " " + lastName + " " + income + " " + subs);
             rowNumber++;
         }//while
         resultSet.close();
