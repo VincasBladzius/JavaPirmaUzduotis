@@ -28,10 +28,9 @@ public class Main {
 
             statement.close();
             connect.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            StackTraceElement[] elements = e.getStackTrace();
+            System.out.println(e + " at " + elements[elements.length - 1]);
         }
     }
 }

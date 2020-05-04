@@ -18,7 +18,7 @@ public abstract class QueriesClass {
         this.statement = statement;
     }//ctor
 
-    public abstract void performAction() throws SQLException;
+    public abstract void performAction();
 
     public ResultSet FetchDatabase() throws SQLException {
         statement.execute("SELECT * FROM " + TABLE_FOR_PERSONS);

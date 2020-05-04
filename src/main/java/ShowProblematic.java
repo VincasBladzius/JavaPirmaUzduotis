@@ -7,15 +7,19 @@ public class ShowProblematic extends QueriesClass implements Delete{
     }
 
     @Override
-    public void delete() throws SQLException {
-        super.getStatement().execute("DELETE FROM "
-                + TABLE_FOR_PERSONS +
-                " WHERE "
-                + INCOME + " > 400 ");
+    public void delete(){
+        try {
+            super.getStatement().execute("DELETE FROM "
+                    + TABLE_FOR_PERSONS +
+                    " WHERE "
+                    + INCOME + " > 400 ");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void performAction() throws SQLException {
+    public void performAction(){
         this.delete();
     }
 }

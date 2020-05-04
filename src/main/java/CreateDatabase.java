@@ -11,34 +11,42 @@ public class CreateDatabase extends QueriesClass{
 //           statement.execute("DELETE FROM contacts WHERE name='Joe'");
 
     @Override
-    public void performAction() throws SQLException {
-        super.getStatement().execute("CREATE TABLE IF NOT EXISTS " +
-                TABLE_FOR_PERSONS + " (" +
-                FIRST_NAME + " TEXT, " +
-                LAST_NAME + " TEXT," +
-                COMPANY + " TEXT, " +
-                INCOME + " INT, " +
-                SUBSIDIZED + " BOOL)");
-        int rowsNow = CountRows();
-        while (rowsNow < 25){
-            FillFakerData();
-            rowsNow = CountRows();
+    public void performAction() {
+        try {
+            super.getStatement().execute("CREATE TABLE IF NOT EXISTS " +
+                    TABLE_FOR_PERSONS + " (" +
+                    FIRST_NAME + " TEXT, " +
+                    LAST_NAME + " TEXT," +
+                    COMPANY + " TEXT, " +
+                    INCOME + " INT, " +
+                    SUBSIDIZED + " BOOL)");
+            int rowsNow = CountRows();
+            while (rowsNow < 25) {
+                FillFakerData();
+                rowsNow = CountRows();
+            }
         }
-    }//CreateDatabase
-
-    public void FillFakerData() throws SQLException {
-        DataFaker data = new DataFaker();
-        super.getStatement().execute("INSERT INTO " +
-                TABLE_FOR_PERSONS + " (" +
-                FIRST_NAME + ", " +
-                LAST_NAME + ", " +
-                COMPANY + ", " +
-                INCOME + ", " +
-                SUBSIDIZED + ") VALUES('" +
-                data.GenerateName()[0] + "','" +
-                data.GenerateName()[0] + "'," +
-                " '" +
-                data.GenerateCompany() + "','" +
-                data.GenerateIncome() + "',"  + false + ")");
+        catch (Exception e) {
+            e.printStackTrace();
+        }//CreateDatabase
+    }
+        public void FillFakerData(){
+        try {
+            DataFaker data = new DataFaker();
+            super.getStatement().execute("INSERT INTO " +
+                    TABLE_FOR_PERSONS + " (" +
+                    FIRST_NAME + ", " +
+                    LAST_NAME + ", " +
+                    COMPANY + ", " +
+                    INCOME + ", " +
+                    SUBSIDIZED + ") VALUES('" +
+                    data.GenerateName()[0] + "','" +
+                    data.GenerateName()[0] + "'," +
+                    " '" +
+                    data.GenerateCompany() + "','" +
+                    data.GenerateIncome() + "',"  + false + ")");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }//FillFakerData
 }
