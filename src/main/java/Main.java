@@ -1,7 +1,7 @@
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Main {
-    private static int DbSize = 25;
     private static Connection connect = null;
     private static Statement statement = null;
     public static final String DB_NAME = "pandemic";
@@ -14,10 +14,9 @@ public class Main {
             Class.forName(driver);
             connect = DriverManager.getConnection(url, user, pass);
             statement = connect.createStatement();
-
+            PrintOut printOut = new PrintOut(statement);
             CreateDatabase createDatabase = new CreateDatabase(statement);
             createDatabase.performAction();
-            PrintOut printOut = new PrintOut(statement);
             printOut.performAction();
             Subsidize subsidize = new Subsidize(statement);
             subsidize.performAction();
@@ -31,6 +30,8 @@ public class Main {
         } catch (Exception e) {
             StackTraceElement[] elements = e.getStackTrace();
             System.out.println(e + " at " + elements[elements.length - 1]);
-        }
-    }
+        }//try
+    }//create Array
+
+
 }

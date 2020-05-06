@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.Scanner;
 
 public class CreateDatabase extends QueriesClass{
 
@@ -21,7 +22,8 @@ public class CreateDatabase extends QueriesClass{
                     INCOME + " INT, " +
                     SUBSIDIZED + " BOOL)");
             int rowsNow = CountRows();
-            while (rowsNow < 25) {
+            int number = AskForInput();
+            while (rowsNow < number) {
                 FillFakerData();
                 rowsNow = CountRows();
             }
@@ -49,4 +51,20 @@ public class CreateDatabase extends QueriesClass{
             e.printStackTrace();
         }
     }//FillFakerData
-}
+
+    public int AskForInput(){
+        Scanner sc = new Scanner(System.in);
+        int number;
+        do {
+            System.out.println("Please enter a positive number!");
+            while (!sc.hasNextInt()) {
+                System.out.println("That's not a number!");
+                sc.next();
+            }
+            number = sc.nextInt();
+        } while (number <= 0);
+        System.out.println("Thank you! Got " + number);
+        return number;
+        }
+
+}//Class

@@ -35,5 +35,22 @@ public abstract class QueriesClass {
 
     public Statement getStatement() {
         return statement;
-    }
+    }//getStatement
+    public void printOut(){
+        try {
+            ResultSet resultSet = FetchDatabase();
+            int rowNumber = 1;
+            while (resultSet.next()) {
+                String name = resultSet.getString(FIRST_NAME);
+                String lastName = resultSet.getString(LAST_NAME);
+                int income = resultSet.getInt(INCOME);
+                String subs = resultSet.getString(SUBSIDIZED);
+                System.out.println(rowNumber + " " + name + " " + lastName + " " + income + " " + subs);
+                rowNumber++;
+            }//while
+            resultSet.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//PrintoutDatabase
 }//class
