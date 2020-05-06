@@ -14,24 +14,20 @@ public class Main {
             Class.forName(driver);
             connect = DriverManager.getConnection(url, user, pass);
             statement = connect.createStatement();
-            PrintOut printOut = new PrintOut(statement);
-            CreateDatabase createDatabase = new CreateDatabase(statement);
-            createDatabase.performAction();
-            printOut.performAction();
-            Subsidize subsidize = new Subsidize(statement);
-            subsidize.performAction();
-            printOut.performAction();
-            ShowProblematic showProblematic = new ShowProblematic(statement);
-            showProblematic.performAction();
-            printOut.performAction();
-
-            statement.close();
-            connect.close();
-        } catch (Exception e) {
-            StackTraceElement[] elements = e.getStackTrace();
-            System.out.println(e + " at " + elements[elements.length - 1]);
-        }//try
-    }//create Array
+            Bundle bundle = new Bundle();
+            PrintOut print = new PrintOut(statement);
+            ArrayList<QueriesClass> bundlePack = bundle.createBundle(statement);
+            for (QueriesClass query : bundlePack) {
+                query.performAction();
+                print.performAction();
+            }
+                statement.close();
+                connect.close();
+            } catch (Exception e) {
+                StackTraceElement[] elements = e.getStackTrace();
+                System.out.println(e + " at " + elements[elements.length - 1]);
+            }//try
+    }//main
 
 
 }

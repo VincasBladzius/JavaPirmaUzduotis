@@ -1,5 +1,4 @@
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class PrintOut extends QueriesClass{
@@ -24,6 +23,7 @@ public class PrintOut extends QueriesClass{
         }catch(Exception e){
             e.printStackTrace();
         }
+        System.out.println("END OF LIST!!! \n\n");
     }//PrintoutDatabase
 }
 
