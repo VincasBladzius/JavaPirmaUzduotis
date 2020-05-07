@@ -1,5 +1,5 @@
-import java.sql.ResultSet;
-import java.sql.SQLException;
+package piRmaUzduotis;
+
 import java.sql.Statement;
 
 public class Subsidize extends QueriesClass implements Delete {

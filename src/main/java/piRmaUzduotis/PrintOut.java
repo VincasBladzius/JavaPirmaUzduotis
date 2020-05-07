@@ -1,7 +1,9 @@
+package piRmaUzduotis;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class PrintOut extends QueriesClass{
+public class PrintOut extends QueriesClass {
   public PrintOut(Statement statement) {
     super(statement);
   }

@@ -1,15 +1,13 @@
+package piRmaUzduotis;
+
 import java.sql.*;
 import java.util.Scanner;
 
-public class CreateDatabase extends QueriesClass{
+public class CreateDatabase extends QueriesClass {
 
     public CreateDatabase(Statement statement) {
         super(statement);
     }
-   //        statement.execute("INSERT INTO contacts (name, phone, email) VALUES('Jane', 65656654, 'jane@mail.com')");
-//        statement.execute("INSERT INTO contacts (name, phone, email) VALUES('Fido', 65656654, 'fido@mail.com')");
-//           statement.execute("UPDATE contacts SET phone=78787 WHERE name='Joe'");
-//           statement.execute("DELETE FROM contacts WHERE name='Joe'");
 
     @Override
     public void performAction() {
@@ -30,7 +28,7 @@ public class CreateDatabase extends QueriesClass{
         }
         catch (Exception e) {
             e.printStackTrace();
-        }//CreateDatabase
+        }//piRmaUzduotis.CreateDatabase
     }
         public void FillFakerData(){
         try {

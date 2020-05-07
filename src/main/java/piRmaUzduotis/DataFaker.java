@@ -1,3 +1,5 @@
+package piRmaUzduotis;
+
 import com.github.javafaker.Faker;
 
 import java.util.Random;
